@@ -2,8 +2,7 @@
 
 
 PidController::PidController(float Kp, float Ki, float Kd, float setPoint,
-                             float outputMin=OUTPUT_MIN_VALUE, 
-                             float outputMax=OUTPUT_MAX_VALUE) 
+                             float outputMin, float outputMax) 
     : Kp(Kp), Ki(Ki), Kd(Kd), setPoint(setPoint), outputMin(outputMin),
       outputMax(outputMax)
 {
@@ -34,6 +33,7 @@ float PidController::update(float value)
 
     // Ensure the output value is within the limits.
     output = limit(output);
+    last_error = error;
 
     return output;
 }

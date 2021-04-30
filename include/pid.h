@@ -25,7 +25,8 @@ class PidController {
 
     public:
         PidController(float Kp, float Ki, float Kd, float setPoint,
-                      float outputMin, float outputMax);
+                      float outputMin=OUTPUT_MIN_VALUE, 
+                      float outputMax=OUTPUT_MAX_VALUE);
         ~PidController();
         float update(float value);
 };
